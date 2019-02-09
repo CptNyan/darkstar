@@ -45,26 +45,26 @@ INITIAL_LEVEL_CAP = 50; -- The initial level cap for new players.  There seems t
 MAX_LEVEL = 99; -- Level max of the server, lowers the attainable cap by disabling Limit Break quests.
 NORMAL_MOB_MAX_LEVEL_RANGE_MIN = 81; -- Lower Bound of Max Level Range for Normal Mobs (0 = Uncapped)
 NORMAL_MOB_MAX_LEVEL_RANGE_MAX = 84; -- Upper Bound of Max Level Range for Normal Mobs (0 = Uncapped)
-START_GIL = 10000; -- Amount of gil given to newly created characters.
-START_INVENTORY = 60; -- Starting inventory and satchel size.  Ignores values < 30.  Do not set above 80!
+START_GIL = 1000; -- Amount of gil given to newly created characters.
+START_INVENTORY = 50; -- Starting inventory and satchel size.  Ignores values < 30.  Do not set above 80!
 OPENING_CUTSCENE_ENABLE = 0; -- Set to 1 to enable opening cutscenes, 0 to disable.
 SUBJOB_QUEST_LEVEL = 18; -- Minimum level to accept either subjob quest.  Set to 0 to start the game with subjobs unlocked.
 ADVANCED_JOB_LEVEL = 30; -- Minimum level to accept advanced job quests.  Set to 0 to start the game with advanced jobs.
 ALL_MAPS = 1; -- Set to 1 to give starting characters all the maps.
-UNLOCK_OUTPOST_WARPS = 1; -- Set to 1 to give starting characters all outpost warps.  2 to add Tu'Lia and Tavnazia.
+UNLOCK_OUTPOST_WARPS = 2; -- Set to 1 to give starting characters all outpost warps.  2 to add Tu'Lia and Tavnazia.
 
 SHOP_PRICE      = 1.000; -- Multiplies prices in NPC shops.
 GIL_RATE        = 4.000; -- Multiplies gil earned from quests.  Won't always display in game.
-BAYLD_RATE      = 4.000; -- Multiples bayld earned from quests.
-EXP_RATE        = 5.000; -- Multiplies exp earned from fov and quests.
+BAYLD_RATE      = 3.000; -- Multiples bayld earned from quests.
+EXP_RATE        = 4.000; -- Multiplies exp earned from fov and quests.
 TABS_RATE       = 3.000; -- Multiplies tabs earned from fov.
-CURE_POWER      = 2.000; -- Multiplies amount healed from Healing Magic, including the relevant Blue Magic.
-ELEMENTAL_POWER = 1.500; -- Multiplies damage dealt by Elemental and non-drain Dark Magic.
-DIVINE_POWER    = 1.500; -- Multiplies damage dealt by Divine Magic.
-NINJUTSU_POWER  = 1.500; -- Multiplies damage dealt by Ninjutsu Magic.
-BLUE_POWER      = 1.500; -- Multiplies damage dealt by Blue Magic.
-DARK_POWER      = 1.500; -- Multiplies amount drained by Dark Magic.
-ITEM_POWER      = 1.500; -- Multiplies the effect of items such as Potions and Ethers.
+CURE_POWER      = 1.500; -- Multiplies amount healed from Healing Magic, including the relevant Blue Magic.
+ELEMENTAL_POWER = 1.000; -- Multiplies damage dealt by Elemental and non-drain Dark Magic.
+DIVINE_POWER    = 1.000; -- Multiplies damage dealt by Divine Magic.
+NINJUTSU_POWER  = 1.000; -- Multiplies damage dealt by Ninjutsu Magic.
+BLUE_POWER      = 1.000; -- Multiplies damage dealt by Blue Magic.
+DARK_POWER      = 1.000; -- Multiplies amount drained by Dark Magic.
+ITEM_POWER      = 1.000; -- Multiplies the effect of items such as Potions and Ethers.
 WEAPON_SKILL_POWER  = 1.000; -- Multiplies damage dealt by Weapon Skills.
 WEAPON_SKILL_POINTS = 5.000; -- Multiplies points earned during weapon unlocking.
 USE_ADOULIN_WEAPON_SKILL_CHANGES = false; -- true/false. Change to toggle new Adoulin weapon skill damage calculations
@@ -79,7 +79,7 @@ LOGGING_RATE            = 85; -- % chance to recieve an item from logging.  Set 
 MINING_RATE             = 85; -- % chance to recieve an item from mining.  Set between 0 and 100.
 DIGGING_RATE            = 85; -- % chance to receive an item from chocbo digging during favorable weather.  Set between 0 and 100.
 
-HEALING_TP_CHANGE       = -10; -- Change in TP for each healing tick. Default is -100
+HEALING_TP_CHANGE       = -50; -- Change in TP for each healing tick. Default is -100
 
 -- SE implemented coffer/chest illusion time in order to prevent coffer farming. No-one in the same area can open a chest or coffer for loot (gil, gems & items)
 -- till a random time between MIN_ILLSION_TIME and MAX_ILLUSION_TIME. During this time players can loot keyitem and item related to quests (AF, maps... etc.)
@@ -95,13 +95,13 @@ LandKingSystem_HQ = 2;
 
 -- DYNAMIS SETTINGS
     BETWEEN_2DYNA_WAIT_TIME = 2;        -- Hours before player can renter Dynamis. Default is 1 Earthday (24 hours).
-        DYNA_MIDNIGHT_RESET = false;    -- if true, makes the wait time count by number of server midnights instead of full 24 hour intervals
+        DYNA_MIDNIGHT_RESET = true;     -- if true, makes the wait time count by number of server midnights instead of full 24 hour intervals
              DYNA_LEVEL_MIN = 65;       -- level min for entering in Dynamis
-    TIMELESS_HOURGLASS_COST = 50000;    -- refund for the timeless hourglass for Dynamis.
-   PRISMATIC_HOURGLASS_COST = 5000;     -- cost of the prismatic hourglass for Dynamis.
-     CURRENCY_EXCHANGE_RATE = 100;      -- X Tier 1 ancient currency -> 1 Tier 2, and so on.  Certain values may conflict with shop items.  Not designed to exceed 198.
-RELIC_2ND_UPGRADE_WAIT_TIME = 720;      -- wait time for 2nd relic upgrade (stage 2 -> stage 3) in seconds. 7200s = 2 hours.
-RELIC_3RD_UPGRADE_WAIT_TIME = 360;      -- wait time for 3rd relic upgrade (stage 3 -> stage 4) in seconds. 3600s = 1 hour.
+    TIMELESS_HOURGLASS_COST = 50000;   -- refund for the timeless hourglass for Dynamis.
+   PRISMATIC_HOURGLASS_COST = 5000;    -- cost of the prismatic hourglass for Dynamis.
+     CURRENCY_EXCHANGE_RATE = 50;      -- X Tier 1 ancient currency -> 1 Tier 2, and so on.  Certain values may conflict with shop items.  Not designed to exceed 198.
+RELIC_2ND_UPGRADE_WAIT_TIME = 720;     -- wait time for 2nd relic upgrade (stage 2 -> stage 3) in seconds. 7200s = 2 hours.
+RELIC_3RD_UPGRADE_WAIT_TIME = 360;     -- wait time for 3rd relic upgrade (stage 3 -> stage 4) in seconds. 3600s = 1 hour.
 FREE_COP_DYNAMIS = 1 ; -- Authorize player to entering inside COP Dynamis without completing COP mission ( 1 = enable 0= disable)
 
 -- QUEST/MISSION SPECIFIC SETTINGS
@@ -125,14 +125,14 @@ ELEMENTAL_DEBUFF_DURATION = 120; -- base duration of elemental debuffs
 AQUAVEIL_COUNTER = 1;  -- Base amount of hits Aquaveil absorbs to prevent spell interrupts. Retail is 1.
 ABSORB_SPELL_AMOUNT = 8; -- how much of a stat gets absorbed by DRK absorb spells - expected to be a multiple of 8.
 ABSORB_SPELL_TICK = 9; -- duration of 1 absorb spell tick
-SNEAK_INVIS_DURATION_MULTIPLIER = 1.5; -- multiplies duration of sneak,invis,deodorize to reduce player torture. 1 = retail behavior.
+SNEAK_INVIS_DURATION_MULTIPLIER = 2; -- multiplies duration of sneak,invis,deodorize to reduce player torture. 1 = retail behavior.
 USE_OLD_CURE_FORMULA = false; -- true/false. if true, uses older cure formula (3*MND + VIT + 3*(healing skill/5)) // cure 6 will use the newer formula
 USE_OLD_MAGIC_DAMAGE = false; -- true/false. if true, uses older magic damage formulas
 
 -- CELEBRATIONS
 EXPLORER_MOOGLE = 1; -- Enables Explorer Moogle teleports
 EXPLORER_MOOGLE_LEVELCAP = 10;
-HALLOWEEN_2005 = 0; -- Set to 1 to Enable the 2005 version of Harvest Festival, will start on Oct. 20 and end Nov. 1.
+HALLOWEEN_2005 = 1; -- Set to 1 to Enable the 2005 version of Harvest Festival, will start on Oct. 20 and end Nov. 1.
 HALLOWEEN_YEAR_ROUND = 0; -- Set to 1 to have Harvest Festival initialize outside of normal times.
 
 -- MISC
