@@ -1,1 +1,1 @@
-echo %date% %time% >> connect_crash_log.txt
+echo %date% %time% >> game_crash_log.txt
