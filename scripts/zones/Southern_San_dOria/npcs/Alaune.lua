@@ -80,20 +80,21 @@ function onTrigger(player,npc)
     -- Tutorial NPC Quest vars
     TutorialStatus = player:getVar('TutorialStatus');
     LTPMobKill     = player:getVar('LTPMobKill');
-    WeapSkillType  = player:getWeaponSkillType(dsp.slot.MAIN);
-    WeapSkillLvl   = player:getCharSkillLevel(WeapSkillType);
-    Nation         = player:getNation();
-    CharLevel      = player:getMainLvl();
+    local WeapSkillType  = player:getWeaponSkillType(dsp.slot.MAIN);
+    local WeapSkillLvl   = player:getCharSkillLevel(WeapSkillType);
+    local Nation         = player:getNation();
+    local CharLevel      = player:getMainLvl();
     if Nation == 0 then -- Allied with San d'Oria
         if ((TutorialStatus == 0) and (CharLevel <= 10)) then -- Stage: 0
             player:startEvent(915); 
         elseif (TutorialStatus == 915) then -- Stage: 1 - start
             player:startEvent(916);
-        elseif ((TutorialStatus == 917) and (player:hasStatusEffect(dsp.effect.SIGNET))) then -- Stage: 2 - start
+        elseif ((TutorialStatus == 916) and (player:hasStatusEffect(dsp.effect.SIGNET))) then -- Stage: 2 - start
             player:startEvent(918);
-        elseif ((TutorialStatus == 919) and (player:hasStatusEffect(dsp.effect.FOOD))) then -- Stage: 3 - start
+        elseif ((TutorialStatus == 918) and (player:hasStatusEffect(dsp.effect.FOOD))) then -- Stage: 3 - start
             player:startEvent(920);
-        --elseif ((TutorialStatus == ))
+        elseif ((TutorialStatus == 920) and (WeapSkillLvl >= 5)) then
+            player:startEvent(9210);
         end
     else
         player:startEvent(933);
@@ -112,7 +113,6 @@ function onEventFinish(player,csid,option)
         if (player:getFreeSlotsCount() > 0) then
             player:addItem(4376, 6);
             player:messageSpecial(ID.text.ITEM_OBTAINED, 4376);
-            player:setVar("TutorialStatus", 3);
         else
             player.messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED );
         end
