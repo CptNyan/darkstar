@@ -94,7 +94,7 @@ function onTrigger(player,npc)
         elseif ((TutorialStatus == 918) and (player:hasStatusEffect(dsp.effect.FOOD))) then -- Stage: 3 - start
             player:startEvent(920);
         elseif ((TutorialStatus == 920) and (WeapSkillLvl >= 5)) then
-            player:startEvent(9210);
+            player:startEvent(921);
         end
     else
         player:startEvent(933);
