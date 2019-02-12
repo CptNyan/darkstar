@@ -26,6 +26,12 @@ function onMobDeathEx(mob, player, isKiller, isWeaponSkillKill)
         then
             player:addVar("ChaosbringerKills", 1)
         end
+
+        -- Aluane San d'Oria Tutorial NPC
+        local TutorialStatus = player:getVar('TutorialStatus')
+        if ((TutorialStatus == 927) and (player:getZone():getID() == 102)) then
+            player:setVar('LTPMobKill', 1)
+        end
     end
 
     -- Things that happen to any player in the party/alliance
