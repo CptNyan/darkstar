@@ -93,7 +93,7 @@ function onTrigger(player,npc)
             player:startEvent(918);
         elseif ((TutorialStatus == 919) and (player:hasStatusEffect(dsp.effect.FOOD))) then -- Stage: 3 - start
             player:startEvent(920);
-        elseif ((TutorialStatus == ))
+        --elseif ((TutorialStatus == ))
         end
     else
         player:startEvent(933);
