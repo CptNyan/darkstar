@@ -39,21 +39,24 @@ Stage: 3
 Stage: 4
     CS923 - Go use AH
     CS924 - wtg, you found AH
+            - receive chariot band
+
+Stage 5:
     CS925 - Explanation of XP bands. Sent to make it to level 4
     CS926 - Explanation of XP loss
-            - receive Raising Earring
+            - receive Reraise Earring
 
-Stage: 5
+Stage: 6
     CS927 - Go to La Theine Plateau to kill a mob
     CS928 - You came back!
             - receive 800 XP
 
-Stage: 6
+Stage: 7
     CS929 - Go get level 10
     CS930 - You got level 10
             - receive 1000 gil
 
-Stage: 7
+Stage: 8
     CS931 - Go get Holla gate crystal (key item)
     CS932 - You got the crystal, huzzah
             - receive 1000 XP
@@ -84,12 +87,13 @@ function onTrigger(player,npc)
     if Nation == 0 then -- Allied with San d'Oria
         if ((TutorialStatus == 0) and (CharLevel <= 10)) then -- Stage: 0
             player:startEvent(915); 
-        elseif (TutorialStatus == 915) then -- Stage: 1
+        elseif (TutorialStatus == 915) then -- Stage: 1 - start
             player:startEvent(916);
-        elseif ((TutorialStatus == 917) and (player:hasStatusEffect(dsp.effect.SIGNET))) then -- Stage: 2
+        elseif ((TutorialStatus == 917) and (player:hasStatusEffect(dsp.effect.SIGNET))) then -- Stage: 2 - start
             player:startEvent(918);
-        elseif ((TutorialStatus == 919) and (player:hasStatusEffect(dsp.effect.FOOD))) then -- Stage: 3
+        elseif ((TutorialStatus == 919) and (player:hasStatusEffect(dsp.effect.FOOD))) then -- Stage: 3 - start
             player:startEvent(920);
+        elseif ((TutorialStatus == ))
         end
     else
         player:startEvent(933);
@@ -124,6 +128,37 @@ function onEventFinish(player,csid,option)
             player:messageSpecial(ID.text.ITEM_OBTAINED, 4096);
         else
             player.messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED );
+        end
+    elseif (csid == 924) then
+        if (player:getFreeSlotsCount() > 0) then	
+            player:addItem(15761);
+            player:messageSpecial(ID.text.ITEM_OBTAINED, 15761);
+        else
+            player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED);
+        end
+    elseif (csid == 926) then
+        if (player:getFreeSlotsCount() > 0) then
+            player:addItem(14790);
+            player:messageSpecial(ID.text.ITEM_OBTAINED, 14790);
+        else
+            player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED);
+        end
+    elseif (csid == 928) then
+        player:addExp(800 * EXP_RATE);
+    elseif (csid == 930) then
+        local gillAmt = 1000 * GIL_RATE
+        player:addGil(gilAmt);
+        player:messageSpecial(ID.text.GIL_OBTAINED, gilAmt);
+    elseif (csid == 932) then
+        if (player:getFreeSlotsCount() > 0) then
+            player:addExp(1000 * EXP_RATE);
+            player:addItem(1789, 3);
+            player:messageSpecial(ID.text.ITEM_OBTAINED, 1789);
+
+            player:setVar('TutorialStatus', nil);
+            player:setVar('LTPMobKill', nil);
+        else
+            player:messageSpecial(ID.text.ITEM_CANNOT_BE_OBTAINED);
         end
     end
 end;
